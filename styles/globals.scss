@@ -36,6 +36,7 @@ ul{
     width: 100%;
     max-width: 700px;
     margin: auto;
+    padding:0 1.5rem;
 }
 
 .header{
@@ -44,6 +45,7 @@ ul{
     justify-content: center;
     flex-direction: column;
     min-height:400px;
+    width:100%;
 
     h1{
         font-size: 4rem;
@@ -51,6 +53,12 @@ ul{
         max-width:50%;
         text-align:center;
         margin: 0;
+    }
+
+    @media(max-width:520px){
+        h1{
+            max-width:none;
+        }
     }
 
     .call-to-actions{
@@ -95,13 +103,15 @@ ul{
 
     .card{
         width:100%;
-        box-shadow: 0 0 40px rgb(0 0 0 / 4%);
+        // box-shadow: 0 0 40px rgb(0 0 0 / 4%);
+        box-shadow: 0 1px 2px rgb(0,0,0,0.2);
         border-radius: 4px;
         padding: 2rem 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        margin-bottom: 2rem;
 
         p{
             margin: 0;
@@ -115,6 +125,13 @@ ul{
             background: #eee;
             color: #444;
             border-radius: 4px;
+            overflow-y: auto;
+        }
+
+        @media(max-width:520px){
+            .code{
+                width: 100%;
+            }
         }
     }
 }

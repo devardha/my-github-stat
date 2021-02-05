@@ -1,4 +1,4 @@
-import { languageStatDefault } from '../../../utils/card'
+import { languageStatCompact, languageStatDefault } from '../../../utils/card'
 import { topLanguagesQuery } from '../../../graphql/queries'
 import { request } from '../../../utils/request'
 
@@ -93,8 +93,10 @@ export default async function(req, res){
             switch (type) {
                 case 'default':
                     return languageStatDefault(finalArray, langColor)
+                case 'compact':
+                    return languageStatCompact(finalArray, langColor)
                 default:
-                    break;
+                    return languageStatDefault(finalArray, langColor)
             }
         }
 

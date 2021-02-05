@@ -3,6 +3,17 @@ import Head from 'next/head'
 export default function Home() {
     const domain = process.env.DOMAIN || 'http://localhost:3000'
 
+    const designList = [
+        {
+            name: 'Default Language Stats',
+            endpoint: '/api/stats/devardha/languages?type=default',
+        },
+        {
+            name: 'Compact Language Stats',
+            endpoint: '/api/stats/devardha/languages?type=compact',
+        }
+    ]
+
     return (
         <>
             <Head>
@@ -18,15 +29,19 @@ export default function Home() {
             </div>
             <main className="container">
                <ul className="card-list">
-                   <li className="card">
-                       <p>Default GitHub Statistic</p>
-                       <code className="endpoint">{domain}/api/stats/devardha/languages?type=default</code>
-                       <img src={`${domain}/api/stats/devardha/languages?type=default`}/>
-                   </li>
+                   {
+                       designList?.map((item, index) => (
+                        <li className="card">
+                            <p>{item.name}</p>
+                            <code className="endpoint">{domain}{item.endpoint}</code>
+                            <img src={`${domain}${item.endpoint}`}/>
+                        </li>
+                       ))
+                   }
                </ul>
             </main>
             <footer>
-                <p>Dibuat dengan penuh cinta oleh devardha</p>
+                <p>Made with ❤️ by devardha</p>
             </footer>
         </>
     )
