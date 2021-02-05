@@ -23,7 +23,7 @@ export default function Home() {
                 <h1>My GitHub Stats</h1>
                 <p>Monitor your GitHub accout for free.</p>
                 <div className="call-to-actions">
-                    <a href="https://github.com/devardha"><button className="primary">GitHub</button></a>
+                    <a href="https://github.com/devardha/my-github-stats"><button className="primary">GitHub</button></a>
                     <a href="https://paypal.me/ardhayudhatama"><button className="secondary">Donate</button></a>
                 </div>
             </div>
