@@ -38,6 +38,7 @@ export default function Home() {
                     <span>Theme</span>
                     <select name="theme" id="theme" onChange={(e) => setTheme(e.target.value)}>
                         <option value="default">Default</option>
+                        <option value="nightowl">Night Owl</option>
                         <option value="panda">Panda</option>
                     </select>
                 </div>
