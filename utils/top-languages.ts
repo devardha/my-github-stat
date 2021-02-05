@@ -1,5 +1,8 @@
-export const languageStatDefault = (languages: object[], colors: any) => {
+import { getTheme } from './themes'
+
+export const languageStatDefault = (languages: object[], colors: any, theme: string) => {
     const langs: any = languages.slice(0, 5)
+    const design = getTheme(theme)
 
     const svg =`<svg
     width="300"
@@ -9,12 +12,12 @@ export const languageStatDefault = (languages: object[], colors: any) => {
     xmlns="http://www.w3.org/2000/svg"
     >
     <style>
-      .header {
-        font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-        fill: #2f80ed;
-        animation: fadeInAnimation 0.8s ease-in-out forwards;
-      }
-    .lang-name { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #333 }
+        .header {
+            font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+            fill: ${design.textPrimary};
+            animation: fadeInAnimation 0.8s ease-in-out forwards;
+        }
+        .lang-name { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: ${design.textSecondary} }
     </style>
     <rect
       data-testid="card-bg"
@@ -22,9 +25,9 @@ export const languageStatDefault = (languages: object[], colors: any) => {
       y="0.5"
       rx="4.5"
       height="99%"
-      stroke="#E4E2E2"
+      stroke="${design.stroke}"
       width="299"
-      fill="#fffefe"
+      fill="${design.background}"
       stroke-opacity="1"
     />
     <g data-testid="card-title" transform="translate(25, 35)">
@@ -70,8 +73,9 @@ export const languageStatDefault = (languages: object[], colors: any) => {
     return svg
 }
 
-export const languageStatCompact = (languages: object[], colors: any) => {
+export const languageStatCompact = (languages: object[], colors: any, theme: string) => {
     const langs: any = languages.slice(0, 5)
+    const design = getTheme(theme)
 
     const svg = `
     <svg
@@ -84,11 +88,11 @@ export const languageStatCompact = (languages: object[], colors: any) => {
         <style>
         .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-            fill: #2f80ed;
+            fill: ${design.textPrimary};
             animation: fadeInAnimation 0.8s ease-in-out forwards;
         }
         
-        .lang-name { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #333 }
+        .lang-name { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: ${design.textSecondary} }
 
         /* Animations */
         @keyframes scaleInAnimation {
@@ -116,9 +120,9 @@ export const languageStatCompact = (languages: object[], colors: any) => {
             y="0.5"
             rx="4.5"
             height="99%"
-            stroke="#E4E2E2"
+            stroke="${design.stroke}"
             width="349"
-            fill="#fffefe"
+            fill="${design.background}"
             stroke-opacity="1"
         />
             <g data-testid="card-title" transform="translate(25, 35)">

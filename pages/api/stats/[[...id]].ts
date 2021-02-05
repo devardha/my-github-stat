@@ -1,10 +1,11 @@
-import { languageStatCompact, languageStatDefault } from '../../../utils/card'
+import { languageStatCompact, languageStatDefault } from '../../../utils/top-languages'
 import { topLanguagesQuery } from '../../../graphql/queries'
 import { request } from '../../../utils/request'
 
 export default async function(req, res){
     const params = req.query.id
     const type = req.query.type
+    const theme = req.query.theme
 
     const username = params[0]
     const api = params[1]
@@ -92,11 +93,11 @@ export default async function(req, res){
         const getType = (type) => {
             switch (type) {
                 case 'default':
-                    return languageStatDefault(finalArray, langColor)
+                    return languageStatDefault(finalArray, langColor, theme)
                 case 'compact':
-                    return languageStatCompact(finalArray, langColor)
+                    return languageStatCompact(finalArray, langColor, theme)
                 default:
-                    return languageStatDefault(finalArray, langColor)
+                    return languageStatDefault(finalArray, langColor, theme)
             }
         }
 
