@@ -1,7 +1,9 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
     const domain = process.env.DOMAIN || 'http://localhost:3000'
+    const [theme, setTheme] = useState('default')
 
     const designList = [
         {
@@ -13,6 +15,10 @@ export default function Home() {
             endpoint: '/api/stats/devardha/languages?type=compact',
         }
     ]
+
+    useEffect(() => {
+
+    }, [theme])
 
     return (
         <>
@@ -28,17 +34,24 @@ export default function Home() {
                 </div>
             </div>
             <main className="container">
-               <ul className="card-list">
+                <div className="navigation">
+                    <span>Theme</span>
+                    <select name="theme" id="theme" onChange={(e) => setTheme(e.target.value)}>
+                        <option value="default">Default</option>
+                        <option value="panda">Panda</option>
+                    </select>
+                </div>
+                <ul className="card-list">
                    {
                        designList?.map((item, index) => (
-                        <li className="card">
+                        <li className="card" key={index}>
                             <p>{item.name}</p>
-                            <code className="endpoint">{domain}{item.endpoint}</code>
-                            <img src={`${domain}${item.endpoint}`}/>
+                            <code className="endpoint">{domain}{item.endpoint}&theme={theme}</code>
+                            <img src={`${domain}${item.endpoint}&theme=${theme}`}/>
                         </li>
                        ))
                    }
-               </ul>
+                </ul>
             </main>
             <footer>
                 <p>Made with ❤️ by devardha</p>
