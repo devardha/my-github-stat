@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
-    const domain = 'https://mygithub-stats.now.sh/' || 'http://localhost:3000'
+    const domain = 'https://mygithub-stats.now.sh' || 'http://localhost:3000'
     const [theme, setTheme] = useState('default')
 
     const designList = [
